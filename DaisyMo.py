@@ -720,10 +720,15 @@ class Screen(object):
             (self.screen.get_height() - history_normal.get_height(), self.screen.get_height())
         )
 
+        t = localtime()
         other_font: pygame.font.FontType = pygame.font.Font("assets/font/SIMYOU.TTF", 15)
         other_font.set_underline(1)
         other_text: pygame.SurfaceType = other_font.render(
-            "时间: {}".format(strftime("%Y年%m月%d日%H时%M分%S秒", localtime())),
+            #"时间: {}".format(strftime("%Y年%m月%d日%H时%M分%S秒", localtime())),
+            "时间: {}".format(
+                f"{t.tm_year}年{t.tm_mon:02d}月{t.tm_mday:02d}日"
+                f"{t.tm_hour:02d}时{t.tm_min:02d}分{t.tm_sec:02d}秒"
+            ),
             True,
             DCOLOR
         )
@@ -733,9 +738,13 @@ class Screen(object):
         )
 
         while run:
-
+            
+            t = localtime()
             other_text = other_font.render(
-                "时间: {}".format(strftime("%Y年%m月%d日%H时%M分%S秒", localtime())),
+                "时间: {}".format(
+                    f"{t.tm_year}年{t.tm_mon:02d}月{t.tm_mday:02d}日"
+                    f"{t.tm_hour:02d}时{t.tm_min:02d}分{t.tm_sec:02d}秒"
+                ),
                 True,
                 DCOLOR
             )
