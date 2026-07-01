@@ -24,6 +24,9 @@ import os
 import pygame
 import requests
 from pygame.locals import *
+from shutil import (
+    copyfile
+)
 from cv2 import (
     VideoCapture,
     cvtColor,
@@ -127,8 +130,9 @@ class DaisyMo(object):
         soul_file_path: str = "assets/DaisyMo.soul"
 
         if not os_path.exists(soul_file_path):
+            copyfile("DaisyMo.soul", "assets/DaisyMo.soul")
             debug("致命错误", "assets/DaisyMo.soul不存在！")
-            sys_exit()
+            #sys_exit()
 
         daisymo_soul: str = ''
         with open(soul_file_path, 'r', encoding="utf-8") as daisymo_soul_file:
