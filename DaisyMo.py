@@ -474,6 +474,7 @@ class Screen(object):
             self.screen = pygame.display.set_mode(Screen.default_size, vsync=1)
         
         pygame.display.set_caption("AI墨小菊")
+        pygame.display.set_icon(pygame.image.load("icon.png").convert_alpha())
 
         self.init()
 
