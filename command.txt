@@ -1,0 +1,1 @@
+pyinstaller -D DaisyMo.py -i icon.png -w
